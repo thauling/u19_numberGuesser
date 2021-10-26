@@ -52,15 +52,17 @@ const playGame = () => {
 
     do {
         //console.log("Hi there");
-        userGuess = window.prompt("Enter your guess between 1 and 100, including 1 and 100: ");
-        if (userGuess >= 1 && userGuess <= 100) {
+        userGuess = window.prompt(`You have ${attempts - guesses.length} attempts to guess a number between 1 and 100, including 1 and 100: `);
+        //console.log(typeof(userGuess));
+        userGuess = Number(userGuess);
+        if (Number.isInteger(userGuess) && userGuess >= 1 && userGuess <= 100) {
             console.log(`${userGuess} is between 1 and 100`);
             userGuess == rndNumber ? repliesCorrect() : repliesFalse(); // has to be == not === (which would be tru if they were the same object?)
-            console.log(`hint...${rndNumber}`);
+            //console.log(`hint...${rndNumber}`); // for debugging, comment this out for more excitement
 
             guesses.push(userGuess);
             console.log(`numbers guessed: ${guesses}`);
-            guesses.length < 10 ? console.log("Continue!") : console.log("Game OVER, mate!");
+            guesses.length < attempts ? console.log() : console.log("Game OVER, mate!"); //console.log("Continue!")
 
         } else {
             console.log("Seriously, enter an integer in range 1-100");
