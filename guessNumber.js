@@ -65,7 +65,7 @@ const playGame = () => {
             guesses.length < attempts ? console.log() : console.log("Game OVER, mate!"); //console.log("Continue!")
 
         } else {
-            console.log("Seriously, enter an integer in range 1-100");
+            console.log("Seriously pal, enter an integer in the inclusive range of 1-100");
         };
 
         i++
